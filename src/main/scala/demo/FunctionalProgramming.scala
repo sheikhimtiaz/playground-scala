@@ -115,4 +115,12 @@ object FunctionalProgramming extends App {
     "Sheikh"-> 54543545 // equivalent to ("Sheikh", 54543545)
   )
 
+  val aWeirdMap: Map[Int=>Int, Int] = Map{
+    (x=>x+1, 3)
+//    x=>x*2 -> 10 // not valid
+  }
+
+  println(aWeirdMap.get(x=>x+2))
+  println(aWeirdMap.get(x=>x+1))
+
 }
