@@ -10,22 +10,22 @@ object ContextualAbstractions {
   val anOrderedList = aList.sorted // (ordering) injected by the compiler
 
   // Ordering
-  given descendingOrdering: Ordering[Int] = Ordering.fromLessThan(_ > _) // (a, b) => a > b
+//  given descendingOrdering: Ordering[Int] = Ordering.fromLessThan(_ > _) // (a, b) => a > b
   // analogous to an implicit val
 
   trait Combinator[A] {  // monoid
     def combine(x: A, y:A):A
   }
 
-  def combineAll[A](list: List[A])(using combinator: Combinator[A]): A =
-//    list.reduce(combinator.combine)
-    list.reduce((a,b) => combinator.combine(a,b))
+//  def combineAll[A](list: List[A])(using combinator: Combinator[A]): A =
+//    list.reduce((a,b) => combinator.combine(a,b))
+  //    list.reduce(combinator.combine)
 
-  given intCombinator: Combinator[Int] = new Combinator[Int]{
-    override def combine(x: Int, y: Int) = x + y
-  }
+//  given intCombinator: Combinator[Int] = new Combinator[Int]{
+//    override def combine(x: Int, y: Int) = x + y
+//  }
 
-  val theSum = combineAll(aList) // (intCombinator)
+//  val theSum = combineAll(aList) // (intCombinator)
 
   // combineAll(List(1,2,3,4))
 
@@ -40,7 +40,7 @@ object ContextualAbstractions {
    */
 
   // context bounds
-  def combinedAll_v2[A](list: List[A])(using Combinator[A]): A = ???
+//  def combinedAll_v2[A](list: List[A])(using Combinator[A]): A = ???
   def combineAll_v3[A](list: List[A]): A = ???
   def combineAll_v4[A : Combinator](list: List[A]): A = ???
 
@@ -63,23 +63,23 @@ object ContextualAbstractions {
     def greet(): String = s"Hi, my name is $name, I love scala!"
   }
 
-  extension (string: String)
-    def greet(): String = new Person(string).greet()
-
-  val imtiazGreeting = "Imtiaz".greet() // "type enrichment" = pimping
-  println(imtiazGreeting)
-
-  // POWER
-  extension [A](list: List[A]) {
-    def combineAllValues(using combinator: Combinator[A]): A =
-      list.reduce(combinator.combine)
-  }
-
-  val theSum_2 = aList.combineAllValues
-
-  def main(args: Array[String]): Unit = {
-    println(anOrderedList)
-    println(theSum)
-  }
+//  extension (string: String)
+//    def greet(): String = new Person(string).greet()
+//
+//  val imtiazGreeting = "Imtiaz".greet() // "type enrichment" = pimping
+//  println(imtiazGreeting)
+//
+//  // POWER
+////  extension [A](list: List[A]) {
+////    def combineAllValues(using combinator: Combinator[A]): A =
+////      list.reduce(combinator.combine)
+////  }
+//
+//  val theSum_2 = aList.combineAllValues
+//
+//  def main(args: Array[String]): Unit = {
+//    println(anOrderedList)
+//    println(theSum)
+//  }
 
 }

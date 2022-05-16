@@ -36,10 +36,11 @@ object EPSWeekTwo extends App{
    * Functions
    */
 
-//  val increment: Int => Int =
-//    x =>
-//    val result = x + 1
-//    result
+  val incrementTwo: Int => Int =
+    x =>{
+      val result = x + 1
+      result
+    }
 
   val increment: Int => Int = x => x + 1
 
@@ -47,5 +48,7 @@ object EPSWeekTwo extends App{
     (x: Int, y: Int) => x + y
 
   println(add(1, increment(2)))// 4
+
+
 
 }
