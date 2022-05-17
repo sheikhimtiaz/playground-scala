@@ -89,6 +89,7 @@ object Types extends App {
   println(y)
   val face: Char = '☺'
   val number: Int = face  // 9786
+  println(number)
 
   val face2: Char = 9700
   val face3: Char = 9800
