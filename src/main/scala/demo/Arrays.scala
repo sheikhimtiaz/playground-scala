@@ -31,7 +31,7 @@ object Arrays extends App {
 //  for ( i <- 0 to (myList.length - 1)) {
 //    total += myList(i);
 //  }
-  myList.map(item => total + item)
+  myList.map(item => total = total + item)
   println("Total is " + total);
 
   // Finding the largest element
