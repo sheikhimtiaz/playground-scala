@@ -59,7 +59,7 @@ object FunctionalProgramming extends App {
   val aFlatMappedListSecond = List(1,2,3).flatMap{ x =>
   List(x, 2 * x)
   } // alternative syntax. same as .map(x => List(x, 2 * x))
-  println(aFlatMappedList)
+  println("aFlatMappedList --  " + aFlatMappedList)
 
   val aFilteredList = List(1,2,3,4,5).filter( x => x <= 3)
   val aFilteredListTwo = List(1,2,3,4,5).filter( _ <= 3) // equivalent to  x => x <= 3
