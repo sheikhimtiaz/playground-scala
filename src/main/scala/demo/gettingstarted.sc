@@ -75,3 +75,13 @@ strList flatMap { x => numList map {
 val stringMul = "test" * 2
 
 strList.map(str => str*2)
+println("        --------------             ")
+val lightweight =
+  if("Scala" startsWith "S"){
+    val scala = "Scala"
+    val is = "is"
+    val lightweight = "lightweight"
+    scala+ " " + is + " " + lightweight
+  } else
+    "Cannot happen, because scala!=java"
+
