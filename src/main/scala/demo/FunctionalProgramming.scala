@@ -76,6 +76,13 @@ object FunctionalProgramming extends App {
   } yield s"$number-$letter"
   // equivalent to map/flatMap chain above
 
+//  foldLeft with combination
+  def convert[T](xs: Seq[Seq[T]]): Seq[Seq[T]] =
+    xs.foldLeft(Seq(Seq[T]()))((bs,ns) => for (b <- bs; n <- ns) yield b :+ n)
+
+
+  println(convert(Seq(Seq(1,2,3), Seq(4,5), Seq(6,7,8))))
+
   /**
    * Collections
    */
