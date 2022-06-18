@@ -1,8 +1,8 @@
 *.class
 *.log
-.idea/
-target/
-project/
+.idea/*
+target/*
+project/*
 
 /.idea
 /target/
