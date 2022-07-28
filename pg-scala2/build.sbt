@@ -1,4 +1,4 @@
-name := "scala-learn"
+name := "pg-scala2"
 
 version := "0.1"
 
