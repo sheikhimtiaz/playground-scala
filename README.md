@@ -1,2 +1,2 @@
 # scala-learn
- scala learning
+ Playground for Scala and Akka

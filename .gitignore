@@ -1,5 +1,8 @@
 *.class
 *.log
+/.idea/*
+/target/*
+/project/*
 /pg-scala2/.idea/*
 /pg-scala2/target/*
 /pg-scala2/project/*
