@@ -1,12 +1,12 @@
 *.class
 *.log
-.idea/*
-target/*
-project/*
+/pg-scala2/.idea/*
+/pg-scala2/target/*
+/pg-scala2/project/*
+/pg-scala3/.idea/*
+/pg-scala3/target/*
+/pg-scala3/project/*
 .bsp
-/.idea
-/target/
-/project/
 
 # Compiled class file
 *.class
