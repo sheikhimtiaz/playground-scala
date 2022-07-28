@@ -6,6 +6,9 @@
 /pg-scala3/.idea/*
 /pg-scala3/target/*
 /pg-scala3/project/*
+/mini-bank-scala-akka-cassandra/.idea/*
+/mini-bank-scala-akka-cassandra/target/*
+/mini-bank-scala-akka-cassandra/project/*
 .bsp
 
 # Compiled class file
