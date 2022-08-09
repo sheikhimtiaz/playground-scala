@@ -9,6 +9,7 @@ lazy val akkaVersion     = "2.6.9"
 libraryDependencies ++= Seq(
     "org.scala-lang.modules"    %% "scala-parallel-collections" % "1.0.0",
     "com.typesafe.akka"         %% "akka-actor-typed"           % akkaVersion,
-    "com.typesafe.akka"         %% "akka-stream"                % akkaVersion
+    "com.typesafe.akka"         %% "akka-stream"                % akkaVersion,
+    "org.scalatest"             %% "scalatest"                  % "3.2.13"
 )
 
