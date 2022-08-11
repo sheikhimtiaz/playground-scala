@@ -81,6 +81,15 @@ object Arrays {
         var initializedArrayWithValues: List[Int] = List.fill[Int](10)(8)
         var initializedArrayWithValuesTwo: Array[Int] = new Array[Int](10)
 
+        var initializedArrayWithValuesThree: Array[Int] = Array.fill[Int](10)(73)
+
+        var minDisArr = Array.ofDim[Int](3,3)
+//        var minDisArrTwo = Array.fill[Array[Int]](10)
+//        println("minDisArrTwo  => ")
+//        for(i <- 0 until minDisArrTwo.size){
+//
+//        }
+
         println("initializedArrayWithValues => ")
         println(initializedArrayWithValues)
         println(initializedArrayWithValuesTwo.toList)

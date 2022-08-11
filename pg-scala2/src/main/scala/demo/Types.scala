@@ -1,7 +1,5 @@
 package demo
 
-import Array._
-
 object Types extends App {
 
   // Processing Arrays
@@ -43,14 +41,15 @@ object Types extends App {
   var myList1 = Array(1.9, 2.9, 3.4, 3.5)
   var myList2 = Array(8.9, 7.9, 0.4, 1.5)
 
-  var myList3 =  concat( myList1, myList2)
+  var myList3 =  Array.concat( myList1, myList2)
 
   for ( x <- myList3 ) {
     println( x )
   }
 
   // Multi-Dimensional Arrays
-  var myMatrix = ofDim[Int](3,3)
+  var myMatrix = Array.ofDim[Int](3,3)
+  println(myMatrix)
 
   // build a matrix
   for (i <- 0 to 2) {
@@ -70,9 +69,10 @@ object Types extends App {
 
 
   // Create Array with Range
-  var myList11 = range(10, 20, 2)
-  var myList22 = range(10,20)
+  var myList11 = Array.range(10, 20, 2)
+  var myList22 = Array.range(10,20)
 
+  println("Create Array with Range => ")
   for ( x <- myList11 ) {
     print( " " + x )
   }
@@ -81,6 +81,7 @@ object Types extends App {
   for ( x <- myList22 ) {
     print( " " + x )
   }
+  println("")
 
 
   // Type Casting

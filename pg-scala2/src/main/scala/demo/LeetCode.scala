@@ -1,7 +1,8 @@
 package demo
 
-import scala.{:+, ::}
-import scala.collection.mutable
+import scala.collection.mutable.Map
+import scala.collection.mutable.PriorityQueue
+
 
 object LeetCode {
 
@@ -72,7 +73,7 @@ object LeetCode {
 
     def coinChange(coins: Array[Int], amount: Int): Int = {
 //        var dp: Array[Int] = new Array[Int](amount+5)
-        var dp: Array[Int] = List.fill[Int](amount+5)(amount+1).toArray
+        var dp: Array[Int] = Array.fill[Int](amount+5)(amount+1)
         dp(0) = 0
         for(i <- 1 to amount)
         {
@@ -91,7 +92,8 @@ object LeetCode {
 //        var array2d: Array[Array[Int]] =
 //            List.fill[Array[Int]](word1.size+5)(List.fill[Int](word2.size+5)(0).toArray).toArray
 
-        var minDisArr = Array.ofDim[Int](word1.size+2, word2.size+2)
+        var minDisArr = Array.ofDim[Int](word1.size+1, word2.size+1)
+
         for(i<- 0 to word1.size; j<- 0 to word2.size){
             if(i == 0 || j == 0) minDisArr(i)(j) = i + j
 
@@ -143,16 +145,43 @@ object LeetCode {
         valid
     }
 
+    def countWords(text: String): Int = {
+        val counts = Map.empty[String, Int].withDefaultValue(0)
+        println(counts)
+        for (rawWord <- text.split("\\W+")) { // "[ ,!.]+", "[ ,!.]"
+            val word = rawWord.toLowerCase
+            counts(word) += 1
+        }
+        counts.size
+    }
+
+    def findKthLargest(nums: Array[Int], k: Int): Int = {
+        val pq = PriorityQueue.empty(Ordering[Int].reverse)
+        for(i <- 0 until nums.size){
+            if (i < k) pq.enqueue(nums(i))
+            else {
+                pq.enqueue(nums(i))
+                pq.dequeue()
+            }
+        }
+        pq.dequeue()
+    }
+
     def main(args: Array[String]): Unit = {
 
-        println(isInterleave("aabcc","dbbca","aadbbcbcac"))
+//        println(findKthLargest(Array(3,2,1,5,6,4),2))
+//        println(findKthLargest(Array(3,2,3,1,2,4,5,5,6),4))
 
+//        println(countWords("three words here"))
+
+//        println(isInterleave("aabcc","dbbca","aadbbcbcac"))
+//
         println(minDistance("horse","ros"))
-        println(minDistance("intention","execution"))
-
-        println(coinChange(Array(1,2,5),11))
-        println(coinChange(Array(2),3))
-        println(coinChange(Array(1),0))
+//        println(minDistance("intention","execution"))
+//
+//        println(coinChange(Array(1,2,5),11))
+//        println(coinChange(Array(2),3))
+//        println(coinChange(Array(1),0))
 
 //        println(maxEnvelopes(Array(Array(5,4),Array(6,4),Array(6,7),Array(2,3))))
 //        println(maxEnvelopes(Array(Array(1,1),Array(1,1),Array(1,1))))
