@@ -13,3 +13,5 @@ libraryDependencies ++= Seq(
     "org.scalatest"             %% "scalatest"                  % "3.2.13"
 )
 
+// https://mvnrepository.com/artifact/org.scala-lang/scala-xml
+libraryDependencies += "org.scala-lang" % "scala-xml" % "2.13"
