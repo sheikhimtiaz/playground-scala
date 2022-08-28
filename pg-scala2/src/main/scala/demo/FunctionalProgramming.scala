@@ -108,6 +108,7 @@ object FunctionalProgramming extends App {
   val setHas5 = aSet.contains(5) // false
   val anAddedSet = aSet + 5
   val aRemovedSet = aSet - 3
+  val anEmptySet = Set.empty
 
   // ranges
   val aRange = 1 to 1000

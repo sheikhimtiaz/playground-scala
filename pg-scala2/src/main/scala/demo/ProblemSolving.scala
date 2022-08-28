@@ -16,5 +16,6 @@ object ProblemSolving extends App{
     }
 
     List.range(0,11).map(x => print(fibonacchi(x)+ " "))
+    println("")
 
 }

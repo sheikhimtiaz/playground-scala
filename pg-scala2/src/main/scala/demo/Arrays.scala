@@ -48,6 +48,9 @@ object Arrays {
     println("Max is " + max)
 
     def main(args: Array[String]): Unit = {
+        println("test => " + List[Int]().foreach(_*5))
+        println("test => " + "aga=agag".split(";").size)
+
         arraysNiyeKapjhap
     }
 
