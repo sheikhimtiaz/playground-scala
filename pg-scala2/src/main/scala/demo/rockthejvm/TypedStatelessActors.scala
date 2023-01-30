@@ -1,21 +1,24 @@
-package demo
+package demo.rockthejvm
 
-import akka.actor.typed.{ActorSystem, Behavior}
 import akka.actor.typed.scaladsl.Behaviors
+import akka.actor.typed.{ActorSystem, Behavior}
 
 object TypedStatelessActors {
 
     trait SimpleThing
+
     case object EatChocolate extends SimpleThing
+
     case object WashDishes extends SimpleThing
+
     case object LearnAkka extends SimpleThing
 
-    val emotionalMutableActor: Behavior[SimpleThing] = Behaviors.setup{ context =>
+    val emotionalMutableActor: Behavior[SimpleThing] = Behaviors.setup { context =>
         // sping up the actor state
         var happiness = 0
 
         // behaviour of the actor
-        Behaviors.receiveMessage{
+        Behaviors.receiveMessage {
             case EatChocolate =>
                 println(s"($happiness) Eating chocolate, getting a shot of dopamine")
                 happiness += 1
@@ -34,7 +37,7 @@ object TypedStatelessActors {
         }
     }
 
-    def emotionalFunctionalActor(happiness: Int = 0): Behavior[SimpleThing] = Behaviors.receive{ (context, message) =>
+    def emotionalFunctionalActor(happiness: Int = 0): Behavior[SimpleThing] = Behaviors.receive { (context, message) =>
         message match {
             case EatChocolate =>
                 println(s"($happiness) Eating chocolate, getting a shot of dopamine")

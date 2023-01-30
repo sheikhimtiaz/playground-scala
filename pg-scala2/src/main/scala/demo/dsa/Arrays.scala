@@ -1,7 +1,7 @@
-package demo
+package demo.dsa
 
 object Arrays {
-    var z:Array[String] = new Array[String](3)
+    var z: Array[String] = new Array[String](3)
 
     var z1 = new Array[String](3)
 
@@ -9,7 +9,7 @@ object Arrays {
 
     z(0) = "Zara"
     z(1) = "Nuha"
-    z(4/2) = "Ayan"
+    z(4 / 2) = "Ayan"
 
     println(z(1))
 
@@ -18,8 +18,8 @@ object Arrays {
     var myList = Array(1.9, 2.9, 3.4, 3.5)
 
     // Print all the array elements
-    for ( x <- myList ) {
-        println( x )
+    for (x <- myList) {
+        println(x)
     }
 
     myList.map(item => print(item + " - "))

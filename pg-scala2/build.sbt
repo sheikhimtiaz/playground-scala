@@ -14,4 +14,4 @@ libraryDependencies ++= Seq(
 )
 
 // https://mvnrepository.com/artifact/org.scala-lang/scala-xml
-libraryDependencies += "org.scala-lang" % "scala-xml" % "2.13"
+//libraryDependencies += "org.scala-lang" % "scala-xml" % "2.13"

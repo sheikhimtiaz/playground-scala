@@ -1,4 +1,4 @@
-package demo
+package demo.dsa
 
 import scala.collection.immutable.Queue
 
@@ -17,5 +17,5 @@ object BFS {
         node #:: recurse(Queue.empty ++ f(node))
     }
 
-//    breadth_first_traverse(root, f) find (_ == 16)
+    //    breadth_first_traverse(root, f) find (_ == 16)
 }
