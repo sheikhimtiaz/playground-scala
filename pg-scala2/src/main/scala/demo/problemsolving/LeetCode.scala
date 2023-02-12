@@ -6,6 +6,100 @@ import scala.util.control.Breaks.break
 
 object LeetCode {
 
+    def main(args: Array[String]): Unit = {
+        val tokens = Array("2","1","+","3","*")
+        println(evalRPN(tokens))
+        val tokens2 = Array("4","13","5","/","+")
+        println(evalRPN(tokens2))
+        val tokens3 = Array("10","6","9","3","+","-11","*","/","*","17","+","5","+")
+        println(evalRPN(tokens3))
+
+    }
+
+    def evalRPN(tokens: Array[String]): Int = {
+        if(tokens.length < 3) 0
+        else {
+            val allowedOps = Array("+","-","*","/")
+            var mystack = mutable.Stack[String]()
+            var pivot = 1
+            mystack.push(tokens(tokens.length-pivot))
+            pivot += 1
+            mystack.push(tokens(tokens.length-pivot))
+            pivot += 1
+            mystack.push(tokens(tokens.length-pivot))
+            pivot += 1
+            while(mystack.size > 1){
+                val first = mystack.pop()
+                if(allowedOps.contains(first)) {
+                    mystack.push(first)
+                    mystack.push(tokens(tokens.length-pivot))
+                    pivot += 1
+                    mystack.push(tokens(tokens.length-pivot))
+                    pivot += 1
+                }
+                else {
+                    val second = mystack.pop()
+                    if(allowedOps.contains(second)){
+                        mystack.push(second)
+                        mystack.push(first)
+                        mystack.push(tokens(tokens.length-pivot))
+                        pivot += 1
+                    }
+                    else {
+                        val result = exalRPNOps(mystack.pop(), first.toInt, second.toInt)
+                        mystack.push(result.toString)
+                    }
+                }
+            }
+            mystack.pop().toInt
+        }
+    }
+    def exalRPNOps(act: String, v1: Int, v2: Int): Int = {
+        act match {
+            case "+" => v1 + v2
+            case "-" => v1 - v2
+            case "/" => v1 / v2
+            case "*" => v1 * v2
+        }
+    }
+
+    def testOldFunctions(): Unit = {
+        println(findKthLargest(Array(3,2,1,5,6,4),2))
+        println(findKthLargest(Array(3,2,3,1,2,4,5,5,6),4))
+
+        println(countWords("three words here"))
+
+        println(isInterleave("aabcc","dbbca","aadbbcbcac"))
+
+        println(minDistance("horse", "ros"))
+        println(minDistance("intention","execution"))
+
+        println(coinChange(Array(1,2,5),11))
+        println(coinChange(Array(2),3))
+        println(coinChange(Array(1),0))
+
+        println(maxEnvelopes(Array(Array(5,4),Array(6,4),Array(6,7),Array(2,3))))
+        println(maxEnvelopes(Array(Array(1,1),Array(1,1),Array(1,1))))
+
+        val input = "3[a2[c]]xyz"
+        println(decodeString(input))
+
+        val myNumberString = "tnztheewrreoooe"
+
+        val numbersSpelling = Map(
+            0 -> "zero",
+            1 -> "one",
+            2 -> "two",
+            3 -> "three",
+            4 -> "four",
+            5 -> "five",
+            6 -> "six",
+            7 -> "seven",
+            8 -> "eight",
+            9 -> "nine",
+        )
+    }
+
     def findMaxConsecutiveOnes(nums: Array[Int]): Int =
         nums.scanLeft(0)((m, x) => if (x == 0) 0 else m + 1).max
 
@@ -177,46 +271,6 @@ object LeetCode {
             }
         }
         res
-    }
-
-    def main(args: Array[String]): Unit = {
-
-        //        println(findKthLargest(Array(3,2,1,5,6,4),2))
-        //        println(findKthLargest(Array(3,2,3,1,2,4,5,5,6),4))
-
-        //        println(countWords("three words here"))
-
-        //        println(isInterleave("aabcc","dbbca","aadbbcbcac"))
-        //
-        println(minDistance("horse", "ros"))
-        //        println(minDistance("intention","execution"))
-        //
-        //        println(coinChange(Array(1,2,5),11))
-        //        println(coinChange(Array(2),3))
-        //        println(coinChange(Array(1),0))
-
-        //        println(maxEnvelopes(Array(Array(5,4),Array(6,4),Array(6,7),Array(2,3))))
-        //        println(maxEnvelopes(Array(Array(1,1),Array(1,1),Array(1,1))))
-
-        val input = "3[a2[c]]xyz"
-        //        println(decodeString(input))
-
-        val myNumberString = "tnztheewrreoooe"
-
-        val numbersSpelling = Map(
-            0 -> "zero",
-            1 -> "one",
-            2 -> "two",
-            3 -> "three",
-            4 -> "four",
-            5 -> "five",
-            6 -> "six",
-            7 -> "seven",
-            8 -> "eight",
-            9 -> "nine",
-        )
-
-
     }
 
 }
