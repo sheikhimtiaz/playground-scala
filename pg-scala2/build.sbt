@@ -10,7 +10,8 @@ libraryDependencies ++= Seq(
     "org.scala-lang.modules"    %% "scala-parallel-collections" % "1.0.0",
     "com.typesafe.akka"         %% "akka-actor-typed"           % akkaVersion,
     "com.typesafe.akka"         %% "akka-stream"                % akkaVersion,
-    "org.scalatest"             %% "scalatest"                  % "3.2.13"
+    "org.scalatest"             %% "scalatest"                  % "3.2.13",
+    "org.scala-lang.modules"    %% "scala-xml"                  % "2.0.1"
 )
 
 // https://mvnrepository.com/artifact/org.scala-lang/scala-xml
